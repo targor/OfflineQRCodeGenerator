@@ -13,3 +13,5 @@ Features:
 - selectable error correction
 - selectable background and foreground colors
 - NO PYTHON OR CLI!!!!!
+
+![screenshot01](https://user-images.githubusercontent.com/7933943/155603827-9c27beab-3a8a-409f-9668-ea33885f45c8.png)
