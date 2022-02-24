@@ -1,0 +1,415 @@
+﻿<Window x:Class="QRCodeGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:numeric="clr-namespace:NumericUpDownLib;assembly=NumericUpDownLib"
+        xmlns:local="clr-namespace:QRCodeGenerator"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="1040" ResizeMode="CanMinimize" Title="Offline QRCode generator (OQR)">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="540"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Column="0" SelectedIndex="{Binding SelectedTabIndex}">
+            <TabItem Header="Plain text" >
+                <TextBox AcceptsReturn="True" Margin="10" Text="{Binding PlainText_Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            </TabItem>
+            
+            <TabItem Header="URL">
+                <TextBox VerticalAlignment="Top" MaxHeight="23" VerticalContentAlignment="Center" Margin="10" Text="{Binding URL_urltext,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </TabItem>
+            <TabItem Header="Email">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalAlignment="Center">To:</Label>
+                            <TextBox 
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center" 
+                                    MaxHeight="23" 
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Stretch"
+                                    VerticalContentAlignment="Center"
+                                    Margin="10" Text="{Binding Mail_To,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalAlignment="Center">Subject:</Label>
+                            <TextBox 
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center" 
+                                    MaxHeight="23" 
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Stretch"
+                                    VerticalContentAlignment="Center"
+                                    Margin="10" Text="{Binding Mail_Subject,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="2" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalAlignment="Center">Message:</Label>
+                            <TextBox 
+                                    Grid.Column="1"
+                                    VerticalAlignment="Stretch" 
+                                    AcceptsReturn="True"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Left"
+                                    VerticalContentAlignment="Top"
+                                    Margin="10" Text="{Binding Mail_Message,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="SMS">
+                <TextBox VerticalAlignment="Top" MaxHeight="23" VerticalContentAlignment="Center" Margin="10" Text="{Binding Sms_Number,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </TabItem>
+            <TabItem Header="Wifi">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">SSID</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="10" Text="{Binding Wifi_SSID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Password</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="10" Text="{Binding Wifi_Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Encryption</Label>
+                        <ComboBox Grid.Column="1" Margin="10" MinWidth="120" HorizontalAlignment="Left" SelectedItem="{Binding WEncryption,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding WEncryptions}"></ComboBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="ConatcDetails (VCard)">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Name</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Firstname</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Organization</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Organization,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Telephone</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Telephone,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Email</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Cellphone</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Cellphone,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Street</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Street,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">City</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_City,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">State</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Region_State,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Postcode</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Postcode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Country</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Country,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="11">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Website</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Vcard_Website,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="Event">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Event title</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Event_Title,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center">Location</Label>
+                        <TextBox Grid.Column="1" VerticalAlignment="Center" MaxHeight="23" VerticalContentAlignment="Center" Margin="2" Text="{Binding Event_Location,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0 20 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="0 0 20 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0">Start date</Label>
+                            <DatePicker Grid.Row="1" SelectedDate="{Binding Event_StartDate}"></DatePicker>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin="0 0 20 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0">End date</Label>
+                            <DatePicker Grid.Row="1" SelectedDate="{Binding Event_EndDate}"></DatePicker>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="About">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">Created by Targor (https://github.com/targor)</Label>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Column="1"  Margin="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center">
+                    <Run Text="Image Pixel width: "/>
+                    <Run Text="{Binding QRCodeImage.Width,StringFormat=N1,Mode=OneWay,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+                </TextBlock>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center">
+                    <Run Text="Image Pixel height: "/>
+                    <Run Text="{Binding QRCodeImage.Height,StringFormat=N1,Mode=OneWay,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+                </TextBlock>
+            </Grid>
+            <ScrollViewer Grid.Row="1" 
+                          HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Padding="0"
+                          Margin="10"
+                          >
+                <Image 
+                   Source="{Binding QRCodeImage}" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   Stretch="None" 
+                   />
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label VerticalAlignment="Center">Pixel width/height</Label>
+                <numeric:LongUpDown MinWidth="50" Value="{Binding PixelWidthHeight,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label>ECC(error correction) level</Label>
+                <ComboBox MinWidth="50" SelectedItem="{Binding ECCLvL,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ECCLvLValues}"></ComboBox>
+            </StackPanel>
+
+            <Grid Grid.Row="3" Margin="0 20 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Grid Grid.Column="0">
+                    <Border BorderBrush="Black" BorderThickness="1" Padding="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="0" Orientation="Vertical">
+                                <Label>Background</Label>
+                                <ComboBox MinWidth="50" SelectedItem="{Binding BackGroundColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ComboColors}"></ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Vertical">
+                                <Label>Foreground</Label>
+                                <ComboBox MinWidth="50" SelectedItem="{Binding ForeGroundColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ComboColors}"></ComboBox>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+
+            <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="20 0 0 0">
+                        <Border BorderBrush="Black" BorderThickness="1" Padding="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" x:Name="QRLogo" Click="QRLogo_Click" Margin="0 0 2 0">Choose logo</Button>
+                                    <Button Grid.Column="1" x:Name="RemoveQRLogo" Click="RemoveQRLogo_Click" Margin="2 0 0 0">Remove logo</Button>
+                                </Grid>
+                               
+                                <Grid Grid.Row="1" Margin="0 5 0 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"></ColumnDefinition>
+                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" >Logosize</Label>
+                                        <numeric:LongUpDown Grid.Column="1" HorizontalAlignment="Left" MinWidth="50" Value="{Binding LogoSize,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </Grid>
+
+                                    <Grid Grid.Row="1" Margin="0 5 0 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"></ColumnDefinition>
+                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0 ">Border size</Label>
+                                        <numeric:LongUpDown Grid.Column="1" MinWidth="50" Value="{Binding BorderSize,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </Grid>
+
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                  
+                    <Button Grid.Column="1" x:Name="SaveTo" Margin="20" Click="SaveTo_Click">Save to...</Button>
+                </Grid>
+            </Grid>
+                
+        </Grid>
+    </Grid>
+</Window>

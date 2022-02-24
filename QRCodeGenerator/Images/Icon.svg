@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:export-ydpi="73.14286"
+   inkscape:export-xdpi="73.14286"
+   inkscape:export-filename="E:\nextcloud\Projekte\QRCodeGenerator\QRCodeGenerator\Images\Icon.png"
+   sodipodi:docname="Icon.svg"
+   id="svg154"
+   height="42"
+   width="42"
+   shape-rendering="crispEdges"
+   version="1.1">
+  <metadata
+     id="metadata160">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs158" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg154"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="18.316677"
+     inkscape:cx="15.948463"
+     inkscape:zoom="7.3275862"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     showgrid="false"
+     id="namedview156"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.428637"
+     id="rect985"
+     width="42"
+     height="42"
+     x="0"
+     y="0" />
+  <rect
+     id="rect4"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="0"
+     x="0" />
+  <rect
+     id="rect6"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="0"
+     x="16" />
+  <rect
+     id="rect8"
+     fill="#000000"
+     height="2"
+     width="6"
+     y="0"
+     x="20" />
+  <rect
+     id="rect10"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="0"
+     x="28" />
+  <rect
+     id="rect12"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="2"
+     x="0" />
+  <rect
+     id="rect14"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="2"
+     x="12" />
+  <rect
+     id="rect16"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="2"
+     x="20" />
+  <rect
+     id="rect18"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="2"
+     x="28" />
+  <rect
+     id="rect20"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="2"
+     x="40" />
+  <rect
+     id="rect22"
+     fill="#000000"
+     height="6"
+     width="6"
+     y="4"
+     x="4" />
+  <rect
+     id="rect24"
+     fill="#000000"
+     height="4"
+     width="4"
+     y="4"
+     x="16" />
+  <rect
+     id="rect26"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="4"
+     x="22" />
+  <rect
+     id="rect28"
+     fill="#000000"
+     height="6"
+     width="6"
+     y="4"
+     x="32" />
+  <rect
+     id="rect30"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="6"
+     x="24" />
+  <rect
+     id="rect32"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="8"
+     x="16" />
+  <rect
+     id="rect34"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="8"
+     x="22" />
+  <rect
+     id="rect36"
+     fill="#000000"
+     height="2"
+     width="8"
+     y="10"
+     x="18" />
+  <rect
+     id="rect38"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="12"
+     x="0" />
+  <rect
+     id="rect40"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="12"
+     x="16" />
+  <rect
+     id="rect42"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="12"
+     x="20" />
+  <rect
+     id="rect44"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="12"
+     x="24" />
+  <rect
+     id="rect46"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="12"
+     x="28" />
+  <rect
+     id="rect48"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="14"
+     x="22" />
+  <rect
+     id="rect50"
+     fill="#000000"
+     height="2"
+     width="8"
+     y="16"
+     x="0" />
+  <rect
+     id="rect52"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="16"
+     x="12" />
+  <rect
+     id="rect54"
+     fill="#000000"
+     height="2"
+     width="12"
+     y="16"
+     x="16" />
+  <rect
+     id="rect56"
+     fill="#000000"
+     height="2"
+     width="6"
+     y="16"
+     x="32" />
+  <rect
+     id="rect58"
+     fill="#000000"
+     height="6"
+     width="2"
+     y="16"
+     x="40" />
+  <rect
+     id="rect60"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="18"
+     x="4" />
+  <rect
+     id="rect62"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="18"
+     x="16" />
+  <rect
+     id="rect64"
+     fill="#000000"
+     height="4"
+     width="4"
+     y="18"
+     x="34" />
+  <rect
+     id="rect66"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="20"
+     x="0" />
+  <rect
+     id="rect68"
+     fill="#000000"
+     height="4"
+     width="2"
+     y="20"
+     x="4" />
+  <rect
+     id="rect70"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="20"
+     x="8" />
+  <rect
+     id="rect72"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="20"
+     x="12" />
+  <rect
+     id="rect74"
+     fill="#000000"
+     height="4"
+     width="2"
+     y="20"
+     x="16" />
+  <rect
+     id="rect76"
+     fill="#000000"
+     height="4"
+     width="4"
+     y="20"
+     x="20" />
+  <rect
+     id="rect78"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="22"
+     x="10" />
+  <rect
+     id="rect80"
+     fill="#000000"
+     height="2"
+     width="10"
+     y="22"
+     x="28" />
+  <rect
+     id="rect82"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="24"
+     x="0" />
+  <rect
+     id="rect84"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="24"
+     x="4" />
+  <rect
+     id="rect86"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="24"
+     x="10" />
+  <rect
+     id="rect88"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="24"
+     x="18" />
+  <rect
+     id="rect90"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="24"
+     x="24" />
+  <rect
+     id="rect92"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="24"
+     x="30" />
+  <rect
+     id="rect94"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="24"
+     x="36" />
+  <rect
+     id="rect96"
+     fill="#000000"
+     height="2"
+     width="8"
+     y="26"
+     x="16" />
+  <rect
+     id="rect98"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="26"
+     x="28" />
+  <rect
+     id="rect100"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="26"
+     x="34" />
+  <rect
+     id="rect102"
+     fill="#000000"
+     height="4"
+     width="2"
+     y="26"
+     x="40" />
+  <rect
+     id="rect104"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="28"
+     x="0" />
+  <rect
+     id="rect106"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="28"
+     x="22" />
+  <rect
+     id="rect108"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="28"
+     x="30" />
+  <rect
+     id="rect110"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="30"
+     x="0" />
+  <rect
+     id="rect112"
+     fill="#000000"
+     height="10"
+     width="2"
+     y="30"
+     x="12" />
+  <rect
+     id="rect114"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="30"
+     x="18" />
+  <rect
+     id="rect116"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="30"
+     x="30" />
+  <rect
+     id="rect118"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="30"
+     x="36" />
+  <rect
+     id="rect120"
+     fill="#000000"
+     height="6"
+     width="6"
+     y="32"
+     x="4" />
+  <rect
+     id="rect122"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="32"
+     x="18" />
+  <rect
+     id="rect124"
+     fill="#000000"
+     height="2"
+     width="12"
+     y="32"
+     x="24" />
+  <rect
+     id="rect126"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="32"
+     x="40" />
+  <rect
+     id="rect128"
+     fill="#000000"
+     height="6"
+     width="2"
+     y="34"
+     x="16" />
+  <rect
+     id="rect130"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="34"
+     x="22" />
+  <rect
+     id="rect132"
+     fill="#000000"
+     height="2"
+     width="12"
+     y="34"
+     x="28" />
+  <rect
+     id="rect134"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="36"
+     x="20" />
+  <rect
+     id="rect136"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="36"
+     x="24" />
+  <rect
+     id="rect138"
+     fill="#000000"
+     height="2"
+     width="4"
+     y="36"
+     x="28" />
+  <rect
+     id="rect140"
+     fill="#000000"
+     height="4"
+     width="2"
+     y="38"
+     x="26" />
+  <rect
+     id="rect142"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="38"
+     x="30" />
+  <rect
+     id="rect144"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="38"
+     x="36" />
+  <rect
+     id="rect146"
+     fill="#000000"
+     height="2"
+     width="14"
+     y="40"
+     x="0" />
+  <rect
+     id="rect148"
+     fill="#000000"
+     height="2"
+     width="6"
+     y="40"
+     x="16" />
+  <rect
+     id="rect150"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="40"
+     x="32" />
+  <rect
+     id="rect152"
+     fill="#000000"
+     height="2"
+     width="2"
+     y="40"
+     x="38" />
+</svg>
